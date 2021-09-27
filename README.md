@@ -23,6 +23,7 @@ Launches the test runner in the interactive watch mode.
 
 to fix the lint issues 
 
+# Time spent on the test is 8 hours cause of the busy schedule that I have 
 
 
 
