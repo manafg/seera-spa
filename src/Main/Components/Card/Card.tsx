@@ -2,7 +2,9 @@ import { StarIcon } from "@chakra-ui/icons";
 import { Badge, Image, Box } from "@chakra-ui/react";
 import React from "react";
 
-function Card() {
+import { Deal } from "../../Context/DealsContext/type";
+
+function Card({ name, price, city, available_on }: Deal) {
   const property = {
     imageUrl: "https://bit.ly/2Z4KKcF",
     imageAlt: "Rear view of modern home with pool",
@@ -15,7 +17,13 @@ function Card() {
   };
 
   return (
-    <Box maxW="sm" borderWidth="1px" borderRadius="lg" bg='white' overflow="hidden">
+    <Box
+      maxW='sm'
+      borderWidth='1px'
+      borderRadius='lg'
+      bg='white'
+      overflow='hidden'
+    >
       <Image src={property.imageUrl} alt={property.imageAlt} />
 
       <Box p="6">
@@ -31,7 +39,7 @@ function Card() {
             textTransform="uppercase"
             ml='2'
           >
-            {property.beds} beds &bull; {property.baths} baths
+            Available on : {available_on}
           </Box>
         </Box>
 
@@ -42,11 +50,11 @@ function Card() {
           lineHeight="tight"
           isTruncated={true}
         >
-          {property.title}
+          {name}
         </Box>
 
         <Box>
-          {property.formattedPrice}
+          ${price}
           <Box as="span" color="gray.600" fontSize="sm">
             / wk
           </Box>
@@ -62,8 +70,9 @@ function Card() {
               />
             ))}
           <Box as="span" ml="2" color="gray.600" fontSize="sm">
-            {property.reviewCount} reviews
+            City:   {city}
           </Box>
+
         </Box>
       </Box>
     </Box>

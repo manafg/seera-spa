@@ -1,0 +1,216 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "airbnb/hooks",
+    "eslint-config-prettier",
+    "plugin:testing-library/react",
+    "plugin:jest-dom/recommended",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "jest": true,
+    "node": true
+  },
+  "plugins": [
+    "fp", // https://github.com/jfmengels/eslint-plugin-fp/tree/master/docs/rules
+    "jest-dom",
+    "jsx-a11y",
+    "prettier",
+    "react",
+    "react-hooks",
+    "testing-library",
+    "@typescript-eslint",
+    "import",
+    "sonarjs"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  // include "declared" global types in global.d.ts here
+  "globals": {
+    "APIError": "readonly",
+    "V2APIError": "readonly",
+    "V2ListAPIResponse": "readonly",
+    "V2ObjectAPIResponse": "readonly",
+    "ReactHookWrapper": "readonly",
+    "PartialEnumKeyObject": "readonly"
+  },
+  "rules": {
+    // Typescript
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
+    ],
+    "@typescript-eslint/ban-ts-ignore": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/interface-name-prefix": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/no-object-literal-type-assertion": "off",
+    "@typescript-eslint/no-empty-function": "warn",
+    "@typescript-eslint/naming-convention": [
+      "warn",
+      // functions and variables to be either of camelCase or PascalCase
+      {
+        "selector": ["variable", "function"],
+        "leadingUnderscore": "allow",
+        "format": ["camelCase", "PascalCase", "UPPER_CASE"]
+      },
+      // enums to be PascalCase
+      {
+        "selector": "enum",
+        "format": ["PascalCase"]
+      },
+      // allow destructured properties to be unaffected by any rules
+      {
+        "selector": "variable",
+        "modifiers": ["destructured"],
+        "format": null
+      }
+    ],
+    // Default eslint rules
+    "arrow-body-style": ["warn", "as-needed"],
+    "array-callback-return": "warn",
+    "arrow-parens": ["error", "as-needed"],
+    "arrow-spacing": "warn",
+    "brace-style": "warn",
+    "class-methods-use-this": "error",
+    "comma-dangle": ["warn", "always-multiline"],
+    "complexity": ["warn", 10],
+    "curly": ["error", "all"],
+    "default-param-last": "warn",
+    "dot-notation": "warn",
+    "eqeqeq": ["error", "smart"],
+    "eol-last": "warn",
+    "id-length": "warn",
+    // Import
+    "import/first": "warn",
+    "import/group-exports": "warn",
+    "import/no-mutable-exports": "warn",
+    "import/newline-after-import": "warn",
+    "import/no-webpack-loader-syntax": "warn",
+    "import/order": ["warn", {
+      "groups": [["builtin", "external"], ["internal", "parent", "sibling", "index"]],
+      "pathGroups": [
+        {
+          "pattern": "{~/*,~*}",
+          "group": "external",
+          "position": "after"
+        },
+        {
+          "pattern": ".*/**/styles",
+          "group": "sibling",
+          "position": "after"
+        }
+      ],
+      "newlines-between": "always",
+      "alphabetize": {
+        "order": "asc",
+        "caseInsensitive": true
+      }
+    }],
+    "jsx-a11y/alt-text": "warn",
+    "jsx-a11y/aria-role": "warn",
+    "jsx-a11y/img-redundant-alt": "warn",
+    "jsx-a11y/no-access-key": "warn",
+    "jsx-quotes": ["warn", "prefer-single"],
+    "keyword-spacing": "warn",
+    "max-depth": ["warn", 3],
+    "max-lines": ["warn", 300],
+    "max-lines-per-function": ["warn", 300],
+    "max-params": ["warn", 10],
+    "max-nested-callbacks": ["warn", 4],
+    "new-cap": ["warn", { "newIsCap": true, "capIsNew": false }],
+    "newline-after-var": ["warn", "always"],
+    "no-array-constructor": "warn",
+    "no-console": ["warn", { "allow": ["warn", "error"] } ],
+    "no-const-assign": "error",
+    "no-dupe-class-members": "error",
+    "no-duplicate-imports": "warn",
+    "no-else-return": "warn",
+    "no-eval": "error",
+    "no-iterator": "error",
+    "no-loop-func": "warn",
+    "no-mixed-operators": "warn",
+    "no-multi-assign": "error",
+    "no-nested-ternary": "warn",
+    "no-new-wrappers": "warn",
+    "no-unneeded-ternary": ["warn", { "defaultAssignment": false }],
+    "no-multiple-empty-lines": "warn",
+    "no-new-func": "error",
+    "no-new-object": "error",
+    "no-param-reassign": "warn",
+    "no-plusplus": "error",
+    "no-prototype-builtins": "warn",
+    "no-restricted-syntax": ["error", "WithStatement"],
+    "no-undef": "warn",
+    "no-underscore-dangle": ["error", { "allow": ["_REDUX_DEVTOOLS_EXTENSION_COMPOSE_"] }],
+    "no-useless-escape": "warn",
+    "no-var": "error",
+    "no-whitespace-before-property": "warn",
+    "one-var": ["warn", "never"],
+    "operator-linebreak": "warn",
+    "padded-blocks": ["warn", "never"],
+    "prefer-arrow-callback": "warn",
+    "prefer-destructuring": "warn",
+    "prefer-rest-params": "warn",
+    "prefer-spread": "warn",
+    "quote-props": ["warn", "as-needed"],
+    "quotes": ["warn", "double", { "avoidEscape": false }],
+    "radix": "warn",
+    "spaced-comment": "warn",
+    "space-before-blocks": "warn",
+    "space-before-function-paren": ["warn", { "named": "never" }],
+    "space-infix-ops": "warn",
+    "space-in-parens": ["warn", "never"],
+    "template-curly-spacing": "error",
+    // fp eslint rules
+    "fp/no-mutating-assign": "warn",
+    "object-shorthand": "error",
+    "prefer-const": "error",
+    "prefer-template": "error",
+    // Prettier rules
+    "prettier/prettier": ["warn"],
+    // React eslint rules
+    "react/forbid-prop-types": "warn",
+    "react/jsx-boolean-value": ["warn", "always"],
+    "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".ts", ".tsx"] }],
+    "react/jsx-indent-props": ["warn", 2],
+    "react/jsx-indent": ["warn", 2],
+    "react/jsx-key": "warn",
+    "react/no-multi-comp": ["warn", { "ignoreStateless": true }],
+    "react/no-string-refs": "warn",
+    "react/jsx-pascal-case": "warn",
+    "react/prefer-es6-class": "warn",
+    "react/prefer-stateless-function": ["warn", { "ignorePureComponents": true }],
+    "react/prop-types": ["error", { "ignore": ["children"], "skipUndeclared": true }],
+    "react/require-render-return": "error",
+    "react/self-closing-comp": "warn",
+    // React-hooks rules
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "off",
+    // Sonar js
+    "sonarjs/cognitive-complexity": ["warn", 10]
+  }
+}

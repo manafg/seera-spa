@@ -1,6 +1,6 @@
 import { Dispatch, ReactNode, SetStateAction } from "react";
 
-type DealtState = Record<string, Deal> | null;
+type DealtState = Deal[]| null;
 
 type SetDealState = Dispatch<SetStateAction<DealtState>>;
 
@@ -17,4 +17,4 @@ type Deal = {
     available_on: string;
 };
 
-export type { DealContextProviderProps, DealContext, DealtState, SetDealState };
+export type { DealContextProviderProps, DealContext, DealtState, SetDealState, Deal };
