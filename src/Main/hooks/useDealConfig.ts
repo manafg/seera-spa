@@ -1,8 +1,9 @@
+import produce from "immer";
 import { useContext, useCallback } from "react";
 
 import { DealStateContext } from "../Context/DealsContext";
-import { Deal, DealContext, DealtState } from "../Context/DealsContext/type";
-import { sortByKey } from "../utils/sorting";
+import { Deal, DealContext } from "../Context/DealsContext/type";
+import { sortByKey, searchByText, getRangePrice } from "../utils/sorting";
 
 function useDealConfig() {
   const [state, setState] = useContext<DealContext>(DealStateContext);
@@ -16,9 +17,38 @@ function useDealConfig() {
     [setState],
   );
 
+  const searchByCityName = useCallback(
+    (text: string) => {
+      const sortedDeal = produce(state, draft =>
+        // @ts-ignore
+        searchByText(state, text),
+      );
+
+      setState(sortedDeal);
+    },
+    [setState],
+  );
+
+  const searchByPriceSlider = useCallback(
+    (number: number) => {
+      const priceDeal = produce(state, draft =>
+        // @ts-ignore
+        getRangePrice(state, number),
+      );
+        debugger; // eslint-disable-line no-debugger
+
+        setState(priceDeal);
+    },
+    [setState],
+  );
+
   const sortDealMap = useCallback(
-    (Deals: Deal[], key: string) => {
-      const sortedDeal: Deal[] = sortByKey(Deals, key);
+    (key: string) => {
+      console.log(state);
+      const sortedDeal = produce(state, draft => {
+        // @ts-ignore
+        sortByKey(draft, key);
+      });
 
       setState(sortedDeal);
     },
@@ -26,31 +56,31 @@ function useDealConfig() {
   );
 
   const searchByDateDealMap = useCallback(
-    (startDate: Date, endDate: Date, deals: Deal[]) => {
+    (startDate: Date, endDate: Date) => {
       const sd = startDate.setHours(0, 0, 0, 0);
       const ed = endDate.setHours(0, 0, 0, 0);
 
-      // @ts-ignore
-      let newArray = deals;
+      const newArray = produce(state, draft => {
+        draft?.filter((d: any) => {
+          const time = new Date(d.available_on).setHours(0, 0, 0, 0);
 
-      newArray = newArray?.filter((d: any) => {
-        const time = new Date(d.available_on).setHours(0, 0, 0, 0);
-
-        // @ts-ignore
-        return sd < time && time < ed;
+          return false;
+        });
       });
-      const newState = newArray?.length ? newArray : deals;
 
-      setState(newState);
+      setState([]);
     },
     [setState],
   );
 
   return {
     state,
+    setState,
     saveDealMap,
     searchByDateDealMap,
+    searchByCityName,
     sortDealMap,
+      searchByPriceSlider,
   };
 }
 

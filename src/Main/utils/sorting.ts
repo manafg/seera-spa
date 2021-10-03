@@ -11,4 +11,12 @@ function sortByKey(array: Deal[], key: string) {
   });
 }
 
-export { sortByKey };
+function searchByText(array: Deal[], text: string) {
+  return array.filter(obj => obj?.name.includes(text));
+}
+
+function getRangePrice(array: Deal[], price: number) {
+  return array.filter(obj => parseInt(obj.price) <= price);
+}
+
+export { sortByKey, searchByText, getRangePrice };

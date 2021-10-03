@@ -5,7 +5,7 @@ import {DealContextProviderProps , DealContext, DealtState} from "./type";
 const DealStateContext = createContext<DealContext>([[], () => null]);
 
 function DealProvider({ children }: DealContextProviderProps) {
-  const [state, setState] = useState<DealtState>(null);
+  const [state, setState] = useState<DealtState>([]);
 
   return (
     <DealStateContext.Provider value={[state, setState]}>

@@ -7,14 +7,15 @@ function useDealContextInit() {
 
   const onSuccess = (data: Deal[]) => {
 
+
     const deal = data;
 
     saveDealMap(deal);
   };
 
-  const { isLoading } = useGetDeals({ onSuccess });
+  const { isLoading , refetch } = useGetDeals({ onSuccess });
 
-  return { isLoading };
+  return { isLoading , refetch};
 }
 
 export default useDealContextInit;
