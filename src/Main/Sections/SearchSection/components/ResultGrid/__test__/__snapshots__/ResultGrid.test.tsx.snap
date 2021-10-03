@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot tests Matches existing Snapshot 1`] = `
+<div
+  className="css-kkkcrq"
+>
+  No Result match your search
+  <button
+    className="chakra-button css-1fhw8o5"
+    type="button"
+  >
+    Reset
+  </button>
+</div>
+`;

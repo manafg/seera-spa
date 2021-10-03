@@ -28,7 +28,7 @@ function Card({ name, price, city, available_on }: Deal) {
 
       <Box p="6">
         <Box d="flex" alignItems="baseline">
-          <Badge borderRadius="full" px="2" colorScheme="teal">
+          <Badge borderRadius="full" px="2" colorScheme="red">
             New
           </Badge>
           <Box
@@ -66,7 +66,7 @@ function Card({ name, price, city, available_on }: Deal) {
             .map((_, i) => (
               <StarIcon
                 key={i}
-                color={i < property.rating ? "teal.500" : "gray.300"}
+                color={i < property.rating ? "red.400" : "gray.300"}
               />
             ))}
           <Box as="span" ml="2" color="gray.600" fontSize="sm">

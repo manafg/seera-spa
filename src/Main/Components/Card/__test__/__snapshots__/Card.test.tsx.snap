@@ -47,7 +47,7 @@ exports[`Snapshot tests Matches existing Snapshot 1`] = `
       className="css-15yujhg"
     >
       <svg
-        className="chakra-icon css-4i8mdq"
+        className="chakra-icon css-19fbr80"
         focusable={false}
         viewBox="0 0 24 24"
       >
@@ -57,7 +57,7 @@ exports[`Snapshot tests Matches existing Snapshot 1`] = `
         />
       </svg>
       <svg
-        className="chakra-icon css-4i8mdq"
+        className="chakra-icon css-19fbr80"
         focusable={false}
         viewBox="0 0 24 24"
       >
@@ -67,7 +67,7 @@ exports[`Snapshot tests Matches existing Snapshot 1`] = `
         />
       </svg>
       <svg
-        className="chakra-icon css-4i8mdq"
+        className="chakra-icon css-19fbr80"
         focusable={false}
         viewBox="0 0 24 24"
       >
@@ -77,7 +77,7 @@ exports[`Snapshot tests Matches existing Snapshot 1`] = `
         />
       </svg>
       <svg
-        className="chakra-icon css-4i8mdq"
+        className="chakra-icon css-19fbr80"
         focusable={false}
         viewBox="0 0 24 24"
       >

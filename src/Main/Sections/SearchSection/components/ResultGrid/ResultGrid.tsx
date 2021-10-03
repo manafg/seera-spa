@@ -26,9 +26,9 @@ function ResultGrid({ clearSearch }: ResultGridProps) {
           ))}
         </SimpleGrid>
       ) : (
-        <Center bg='tomato' h='500%' color='white'>
+        <Center bg='#F7F7F7' mt='200px' ml='300px' color='black'>
           No Result match your search
-          <Button colorScheme="teal" variant="link" onClick={clearSearch}>
+          <Button p='3' colorScheme="red" variant="link" onClick={clearSearch}>
              Reset
           </Button>
         </Center>

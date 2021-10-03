@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot tests Matches existing Snapshot 1`] = `
+<div
+  className="css-0"
+>
+  <div
+    className="css-k008qs"
+  >
+    <div
+      className="css-o94p7g"
+    >
+      <div
+        className="react-datepicker-wrapper picker"
+      >
+        <div
+          className="react-datepicker__input-container"
+        >
+          <input
+            className=""
+            disabled={false}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            readOnly={false}
+            type="text"
+            value="10/04/2021"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="css-17xejub"
+    />
+    <div
+      className="css-o94p7g"
+    >
+      <div
+        className="react-datepicker-wrapper picker"
+      >
+        <div
+          className="react-datepicker__input-container"
+        >
+          <input
+            className=""
+            disabled={false}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            readOnly={false}
+            type="text"
+            value="10/04/2021"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="css-17xejub"
+    />
+    <div
+      className="css-o94p7g"
+    >
+      <button
+        className="chakra-button css-5c2176"
+        onClick={[Function]}
+        type="button"
+      >
+        <span
+          className="chakra-button__icon css-1wh2kri"
+        >
+          <svg
+            aria-hidden={true}
+            className="chakra-icon css-onkibi"
+            focusable={false}
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M23.384,21.619,16.855,15.09a9.284,9.284,0,1,0-1.768,1.768l6.529,6.529a1.266,1.266,0,0,0,1.768,0A1.251,1.251,0,0,0,23.384,21.619ZM2.75,9.5a6.75,6.75,0,1,1,6.75,6.75A6.758,6.758,0,0,1,2.75,9.5Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+        Search
+      </button>
+    </div>
+  </div>
+</div>
+`;

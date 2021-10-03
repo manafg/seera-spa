@@ -3,6 +3,8 @@ import DatePicker from "react-datepicker";
 
 import { DatePickerProps } from "./type";
 
+import './datePicker.css'
+
 import "react-datepicker/dist/react-datepicker.css";
 
 function DatePickerComp({
@@ -12,7 +14,7 @@ function DatePickerComp({
   disabled,
   selectedDatePicker,
 }: DatePickerProps) {
-  return <DatePicker onChange={onChange} selected={selectedDatePicker} />;
+  return <DatePicker wrapperClassName="picker" onChange={onChange} selected={selectedDatePicker} />;
 }
 
 export default DatePickerComp;

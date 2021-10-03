@@ -1,4 +1,4 @@
-import { Flex, Box } from "@chakra-ui/react";
+import {Flex, Box, Text} from "@chakra-ui/react";
 import { Input } from "@chakra-ui/react";
 import _ from "lodash";
 import React from "react";
@@ -15,8 +15,12 @@ function SearchByCity() {
   return (
     <Box>
       <Flex>
-        <Box w='150px' h='30'>
+        <Box w='250px' h='30'>
+            <Text fontSize='lg' mb='4'>Search by City</Text>
           <Input
+            size="lg"
+            focusBorderColor="red.400"
+            borderColor="red.200"
             onChange={e => {
               debounce_fun(e.target.value);
             }}

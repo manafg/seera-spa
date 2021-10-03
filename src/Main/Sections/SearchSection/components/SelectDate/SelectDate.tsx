@@ -1,5 +1,6 @@
 import { Flex, Spacer, Box, Button } from "@chakra-ui/react";
 import React, { useState } from "react";
+import { SearchIcon } from "@chakra-ui/icons";
 
 import DatePickerComp from "../../../../Components/DatePicker";
 import useDealConfig from "../../../../hooks/useDealConfig";
@@ -28,7 +29,7 @@ function SelectDate() {
         </Box>
         <Spacer />
         <Box w='150px' h='30'>
-          <Button onClick={()=>searchByDateDealMap(fromDate, toDate )} colorScheme='blue'>
+          <Button leftIcon={<SearchIcon />}  onClick={()=>searchByDateDealMap(fromDate, toDate )} colorScheme='red'>
             Search
           </Button>
         </Box>

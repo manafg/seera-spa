@@ -1,4 +1,5 @@
 import produce from "immer";
+import moment from "moment";
 import { useContext, useCallback } from "react";
 
 import { DealStateContext } from "../Context/DealsContext";
@@ -35,16 +36,13 @@ function useDealConfig() {
         // @ts-ignore
         getRangePrice(state, number),
       );
-        debugger; // eslint-disable-line no-debugger
-
-        setState(priceDeal);
+      setState(priceDeal);
     },
     [setState],
   );
 
   const sortDealMap = useCallback(
     (key: string) => {
-      console.log(state);
       const sortedDeal = produce(state, draft => {
         // @ts-ignore
         sortByKey(draft, key);
@@ -57,18 +55,18 @@ function useDealConfig() {
 
   const searchByDateDealMap = useCallback(
     (startDate: Date, endDate: Date) => {
-      const sd = startDate.setHours(0, 0, 0, 0);
-      const ed = endDate.setHours(0, 0, 0, 0);
+      const sd = moment(startDate, "DD/MM/YYYY");
+      const ed = moment(endDate, "DD/MM/YYYY");
 
-      const newArray = produce(state, draft => {
+      const newArray = produce(state, draft =>
         draft?.filter((d: any) => {
-          const time = new Date(d.available_on).setHours(0, 0, 0, 0);
+          const date = new Date(d.available_on);
+          const time = moment(date, "DD/MM/YYYY");
+          return time.isBetween(sd, ed) || time.isSame(sd) || time.isSame(ed);
+        })
+      );
 
-          return false;
-        });
-      });
-
-      setState([]);
+      setState(newArray);
     },
     [setState],
   );
@@ -80,7 +78,7 @@ function useDealConfig() {
     searchByDateDealMap,
     searchByCityName,
     sortDealMap,
-      searchByPriceSlider,
+    searchByPriceSlider,
   };
 }
 
